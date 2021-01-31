@@ -1,22 +1,23 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { buyIceCream, sellIceCream } from "../actions/ice_creamActions";
 
-const IceCream = () => {
-    const iceCream = useSelector((state) => state.iceCream);
-    const dispatch = useDispatch();
-
+const IceCream = (props) => {
     return (
         <div>
-            <h1>Number of IceCreams = {iceCream.numOfIceCreams}</h1>
-            <button onClick={() => dispatch(buyIceCream())}>
+            <h1>Number of IceCreams = {props.numOfIceCreams}</h1>
+            <button onClick={() => props.dispatch(buyIceCream())}>
                 Buy Ice Cream
             </button>
-            <button onClick={() => dispatch(sellIceCream(3))}>
+            <button onClick={() => props.dispatch(sellIceCream(3))}>
                 Sell Ice Cream
             </button>
         </div>
     );
 };
 
-export default IceCream;
+export default connect((state) => {
+    return {
+        numOfIceCreams: state.iceCream.numOfIceCreams,
+    };
+})(IceCream);

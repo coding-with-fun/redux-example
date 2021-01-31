@@ -7,24 +7,19 @@ export class Cake extends Component {
         return (
             <div>
                 <h1>Number of Cake = {this.props.numOfCakes}</h1>
-                <button onClick={() => this.props.buyCake(3)}>Buy Cake</button>
-                <button onClick={this.props.sellCake}>Sell Cake</button>
+                <button onClick={() => this.props.dispatch(buyCake(3))}>
+                    Buy Cake
+                </button>
+                <button onClick={() => this.props.dispatch(sellCake())}>
+                    Sell Cake
+                </button>
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
+export default connect((state) => {
     return {
         numOfCakes: state.cake.numOfCakes,
     };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        buyCake: (number) => dispatch(buyCake(number)),
-        sellCake: () => dispatch(sellCake()),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cake);
+})(Cake);
