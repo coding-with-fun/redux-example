@@ -1,5 +1,7 @@
+import Cake from "./containers/Cake";
+
 function App() {
-    return <div className="App"></div>;
+    return <Cake />;
 }
 
 export default App;
