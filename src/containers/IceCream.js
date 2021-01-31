@@ -9,8 +9,12 @@ const IceCream = () => {
     return (
         <div>
             <h1>Number of IceCreams = {iceCream.numOfIceCreams}</h1>
-            <button onClick={() => dispatch(buyIceCream())}>Buy Ice Cream</button>
-            <button onClick={() => dispatch(sellIceCream())}>Sell Ice Cream</button>
+            <button onClick={() => dispatch(buyIceCream())}>
+                Buy Ice Cream
+            </button>
+            <button onClick={() => dispatch(sellIceCream(3))}>
+                Sell Ice Cream
+            </button>
         </div>
     );
 };

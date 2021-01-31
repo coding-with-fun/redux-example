@@ -7,7 +7,7 @@ export class Cake extends Component {
         return (
             <div>
                 <h1>Number of Cake = {this.props.numOfCakes}</h1>
-                <button onClick={this.props.buyCake}>Buy Cake</button>
+                <button onClick={() => this.props.buyCake(3)}>Buy Cake</button>
                 <button onClick={this.props.sellCake}>Sell Cake</button>
             </div>
         );
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        buyCake: () => dispatch(buyCake()),
+        buyCake: (number) => dispatch(buyCake(number)),
         sellCake: () => dispatch(sellCake()),
     };
 };
